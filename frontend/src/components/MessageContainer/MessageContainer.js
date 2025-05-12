@@ -3,6 +3,8 @@ import "./MessageContainer.css";
 import { Container } from "@mui/system";
 
 const MessageContainer = ({ messageList, user }) => {
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+  
   return (
     <div>
       {messageList.map((message, index) => {
@@ -21,7 +23,7 @@ const MessageContainer = ({ messageList, user }) => {
                   {message.chat && <div>{message.chat}</div>}
                   {message.image && (
                     <img
-                      src={`http://localhost:5001${message.image}`}
+                      src={`${API_URL}${message.image}`}
                       alt="chat-img"
                       style={{
                         maxWidth: "200px",
@@ -50,7 +52,7 @@ const MessageContainer = ({ messageList, user }) => {
                   {message.chat && <div>{message.chat}</div>}
                   {message.image && (
                     <img
-                      src={`http://localhost:5001${message.image}`}
+                      src={`${API_URL}${message.image}`}
                       alt="chat-img"
                       style={{
                         maxWidth: "200px",
